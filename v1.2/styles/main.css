@@ -8661,6 +8661,11 @@ img.img80_80 {
 .mail-categories .list-group .list-group-item > a > i.fa-circle {
   font-size: 14px;
 }
+.mail-categories .list-group-item.active,
+.mail-categories .list-group-item.active:hover,
+.mail-categories .list-group-item.active:focus {
+  border-color: #eff2f7;
+}
 
 .mail-container .mail-options {
   padding: 12px;
