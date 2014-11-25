@@ -10683,7 +10683,7 @@ button.toast-close-button {
 #nav a {
   color: #767676;
 }
-#nav a:hover {
+#nav a:hover, #nav a:focus, #nav a:active {
   text-decoration: none;
 }
 #nav > li {
