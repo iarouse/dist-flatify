@@ -1,0 +1,94 @@
+<div class="page">
+
+ 
+    <section class="panel panel-default">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Angular Form Wizard</strong></div>
+        <div class="panel-body padding-xl">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                
+                    <section class="ui-angular-wizard" ng-controller="WizardCtrl">
+                        <button ng-click="stepToggle()" class="btn btn-w-md btn-info">Clicking Me Will Toggle Steps On and Off Dynamically</button>
+                        <div class="divider divider-lg"></div>
+                        <wizard on-finish="finished()">
+                            <wz-step wz-title="Start" canexit="exitWithAPromise">
+                                <h2>Start</h2>
+                                <div class="ui-wizard-content">
+                                        
+                                    <p>Hey guys, welcome to the wizard :)</p>
+                                    <p>Here we will use a promise with a timeout to simulate an async server call. Give the wizard <strong>1 second</strong> to progress after clicking next!</p>
+                                    <div class="callout callout-info">
+                                        <p>Otherwise, let's continue with the wizard. Please <a href="" wz-next>click here to continue</a></p>
+                                    </div>
+                                </div>
+                                <div class="ui-wizard-actions">
+                                    <button type="submit" wz-next class="btn btn-w-md btn-primary">Next</button>
+                                </div>
+                            </wz-step>
+                            <wz-step wz-title="Liking it" canexit="exitValidation">
+                                <h2>Liking it</h2>
+                                <div class="ui-wizard-content">
+                                    <p>You're now in the second step of this wizard.</p>
+                                    <p><strong>This step is an example of using <em>canexit</em> validation with no server call, </strong></p>
+                                    <p>Toggle the value to true or false using the button below to see an example of being allowed to exit and being restricted.</p>
+                                    <button ng-click="exitToggle()" class="btn btn-w-md btn-info">Toggle Validation!</button>
+                                    <div class="callout callout-info">
+                                        <p>Value is currently: {{canExit}}</p>
+                                    </div>
+                                </div>
+                                <div class="ui-wizard-actions">
+                                    <button wz-previous="logStep()"  class="btn btn-w-md btn-default">BACK</button>
+                                    <button wz-next="logStep()" class="btn btn-w-md btn-primary" ng-disabled="!canExit">NEXT</button>
+                                </div>
+                            </wz-step>
+                            <wz-step wz-title="More steps" wz-disabled="{{!stepActive}}">
+                                <h2>More steps</h2>
+                                <div class="ui-wizard-content">
+                                    <p>Click on the bottom navigation on Liking it to go back to that step for example</p>
+                                </div>
+                                <div class="ui-wizard-actions">
+                                    <button wz-previous="logStep()"  class="btn btn-w-md btn-default">BACK</button>
+                                    <button wz-next="logStep()" class="btn btn-w-md btn-primary" ng-disabled="!canExit">NEXT</button>
+                                </div>
+                            </wz-step>
+                            <wz-step wz-title="Even more">
+                                <h2>Even More steps</h2>
+                                <div class="ui-wizard-content">
+                                    <p>I can't deal with so many steps. ARGH</p>
+                                </div>
+                                <div class="ui-wizard-actions">
+                                    <button wz-previous="logStep()"  class="btn btn-w-md btn-default">BACK</button>
+                                    <button wz-next="logStep()" class="btn btn-w-md btn-primary">NEXT</button>
+                                </div>
+                            </wz-step>
+                            <wz-step wz-title="Sup?">
+                                <h2>Sup?</h2>
+                                <div class="ui-wizard-content">
+                                    <p>I don't even know what to write!</p>
+                                </div>
+                                <div class="ui-wizard-actions">
+                                    <button wz-previous="logStep()"  class="btn btn-w-md btn-default">BACK</button>
+                                    <button wz-next="logStep()" class="btn btn-w-md btn-primary" >NEXT</button>
+                                </div>
+                            </wz-step>
+                            <wz-step wz-title="Finish him">
+                                <h2>Finish him</h2>
+                                <div class="ui-wizard-content">
+                                    <p>Finally this ends!</p>
+                                </div>
+                                <div class="ui-wizard-actions">
+                                    <button ng-click="goBack()" class="btn btn-w-md btn-info">Restart</button>
+                                    <button wz-reset class="btn btn-w-md btn-info">Reset</button>
+                                    <button wz-previous="logStep()"  class="btn btn-w-md btn-default">BACK</button>
+                                    <button wz-next="logStep()" class="btn btn-w-md btn-primary">Finish</button>
+                                </div>
+                            </wz-step>
+                        </wizard>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </section>     
+
+</div>

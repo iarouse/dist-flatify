@@ -1,0 +1,175 @@
+<div class="page page-dashboard" data-ng-controller="DashboardCtrl">
+
+    <div class="row">
+        <div class="text-center">
+            <!-- Stats -->
+            <div class="col-lg-3 col-sm-6">
+                <div class="panel mini-box">
+                    <span class="btn-icon btn-icon-round btn-icon-lg-alt bg-success">
+                        <span class="fa fa-rocket"></span>
+                    </span>
+                    <div class="box-info">
+                        <p class="size-h2">36 <span class="size-h4">%</span></p>
+                        <p class="text-muted"><span data-translate="GROWTH"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="panel mini-box">
+                    <span class="btn-icon btn-icon-round btn-icon-lg-alt bg-info">
+                        <i class="fa fa-users"></i>
+                    </span>
+                    <div class="box-info">
+                        <p class="size-h2">22 <span class="size-h4">%</span></p>
+                        <p class="text-muted"><span data-translate="NEW_USERS"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="panel mini-box">
+                    <span class="btn-icon btn-icon-round btn-icon-lg-alt bg-warning">
+                        <i class="fa fa-dollar"></i>
+                    </span>
+                    <div class="box-info">
+                        <p class="size-h2">37 <span class="size-h4">k</span></p>
+                        <p class="text-muted"><span data-translate="PROFIT"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="panel mini-box">
+                    <span class="btn-icon btn-icon-round btn-icon-lg-alt bg-danger">
+                        <i class="fa fa-shopping-cart"></i>
+                    </span>
+                    <div class="box-info">
+                        <p class="size-h2">21 <span class="size-h4">k</span></p>
+                        <p class="text-muted"><span data-translate="SALES"></span></p>
+                    </div>
+                </div>
+            </div>
+            <!-- end stats -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default panel-minimal">
+                <div class="panel-body">
+                    <div data-echarts data-options="bar1.options" style="height: 350px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default panel-minimal">
+                <div class="panel-body">
+                    <div data-echarts data-options="pie2.options" style="height: 350px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default panel-minimal">
+                <div class="panel-body">
+                    <div data-echarts data-options="line3.options" style="height: 350px;"></div>
+                </div>
+            </div>            
+        </div>
+        <div class="col-md-4">
+            <section class="panel panel-box">
+                <div class="panel-top bg-info">
+                    <div class="text-left">
+                        Cloudy
+                    </div>
+                    <div class="divider divider-xl"></div>
+                </div>
+                <div class="panel-icon bg-info">
+                    <i class="fa fa-cloud"></i>
+                </div>
+                <div class="panel-bottom bg-reverse">
+                    <ul class="list-justified text-center">
+                        <li>
+                            <p class="size-h2 color-info"><i class="fa fa-sun-o"></i></p>
+                            <p class="text-muted">Tuesday</p>
+                        </li>
+                        <li>
+                            <p class="size-h2 color-success"><i class="fa fa-tint"></i></p>
+                            <p class="text-muted">Thursday</p>
+                        </li>
+                        <li>
+                            <p class="size-h2 color-infoAlt"><i class="fa fa-sun-o"></i></p>
+                            <p class="text-muted">Friday</p>
+                        </li>                        
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Project</th>
+                        <th>Status</th>
+                        <th>Manager</th>
+                        <th>Progress</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><span class="color-success"><i class="fa fa-level-up"></i></span> TWLT</td>
+                        <td><span class="label label-info">Pending</span></td>
+                        <td>Amery Lee</td>
+                        <td><uib-progressbar class="progressbar-xs no-margin" value="55"></uib-progressbar></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><span class="color-success"><i class="fa fa-level-up"></i></span> A16Z</td>
+                        <td><span class="label label-primary">Due</span></td>
+                        <td>Romayne Carlyn</td>
+                        <td><uib-progressbar class="progressbar-xs no-margin" value="34" type="success"></uib-progressbar></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><span class="color-warning"><i class="fa fa-level-down"></i></span> DARK</td>
+                        <td><span class="label label-success">Due</span></td>
+                        <td>Marybeth Joanna</td>
+                        <td><uib-progressbar class="progressbar-xs no-margin" value="68" type="info"></uib-progressbar></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><span class="color-info"><i class="fa fa-level-up"></i></span> Q300</td>
+                        <td><span class="label label-danger">Blocked</span></td>
+                        <td>Jonah Benny</td>
+                        <td><uib-progressbar class="progressbar-xs no-margin" value="52" type="warning"></uib-progressbar></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><span class="color-danger"><i class="fa fa-level-down"></i></span> RVNG</td>
+                        <td><span class="label label-warning">Suspended</span></td>
+                        <td>Daly Royle</td>
+                        <td><uib-progressbar class="progressbar-xs no-margin" value="77" type="danger"></uib-progressbar></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><span class="color-info"><i class="fa fa-level-down"></i></span> FDSA</td>
+                        <td><span class="label label-info">Suspended</span></td>
+                        <td>Jane Swift</td>
+                        <td><uib-progressbar class="progressbar-xs no-margin" value="55" type="success"></uib-progressbar></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+</div>
+  
