@@ -1,0 +1,93 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Web Application</title>
+        <meta name="description" content="Responsive Admin Web App with Bootstrap and AngularJS">
+        <meta name="keywords" content="angularjs admin, admin templates, admin themes, bootstrap admin">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <!-- google fonts -->
+        <script type="text/javascript">
+            WebFontConfig = {
+                google: { families: [ 'Lato:300,400,700,300italic,400italic:latin' ] }
+            };
+            (function() {
+                var wf = document.createElement('script');
+                wf.src = 'bower_components/webfontloader/webfontloader.js';
+                wf.type = 'text/javascript';
+                wf.async = 'true';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(wf, s);
+            })(); 
+        </script>
+
+
+        <!-- Needs images, font... therefore can not be part of main.css -->
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+        <!-- end Needs images -->
+
+            <link rel="stylesheet" href="styles/main.css">
+
+    </head>
+    <body data-ng-app="app"
+          id="body"
+          data-custom-page
+          data-off-canvas-nav
+          data-ng-controller="AppCtrl"
+          >
+        <!--[if lt IE 9]>
+            <div class="lt-ie9-bg">
+                <p class="browsehappy">You are using an <strong>outdated</strong> browser.</p>
+                <p>Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            </div>
+        <![endif]-->
+
+        <section id="app-container">
+            <section id="app"
+                     class="app"
+                     data-ng-class=" { 'layout-boxed': main.layout === 'boxed', 
+                                       'nav-collapsed-min': main.isMenuCollapsed
+            } ">
+
+                <header data-ng-include=" 'app/layout/header.html' "
+                         id="header"
+                         class="header-container "
+                         data-ng-class="{ 'header-fixed': main.fixedHeader,
+                                          'bg-light': ['11','12','13','14','15','16','21'].indexOf(main.skin) >= 0,
+                                          'bg-dark': main.skin === '31',
+                                          'bg-primary': ['22','32'].indexOf(main.skin) >= 0,
+                                          'bg-success': ['23','33'].indexOf(main.skin) >= 0,
+                                          'bg-info-alt': ['24','34'].indexOf(main.skin) >= 0,
+                                          'bg-warning': ['25','35'].indexOf(main.skin) >= 0,
+                                          'bg-danger': ['26','36'].indexOf(main.skin) >= 0
+                         }"></header>
+
+                <div class="main-container">
+                    <aside data-ng-include=" 'app/layout/sidebar.html' "
+                           id="nav-container"
+                           class="nav-container nav-vertical"  
+                           data-ng-class="{ 'nav-fixed': main.fixedSidebar,
+                                            'bg-light': ['31','32','33','34','35','36'].indexOf(main.skin) >= 0,
+                                            'bg-dark': ['31','32','33','34','35','36'].indexOf(main.skin) < 0
+                           }">
+                    </aside>
+
+                    <section id="content" 
+                             class="content-container {{main.pageTransition.class}}" 
+                             data-ng-view
+                             >
+                    </section>
+                </div>
+
+            </section>
+        </section>
+
+        <script src="scripts/vendor.js"></script>
+
+        <script src="scripts/ui.js"></script>
+
+        <script src="scripts/app.js"></script>
+    </body>
+</html>

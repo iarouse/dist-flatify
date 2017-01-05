@@ -1,0 +1,260 @@
+<header class="top-header clearfix">
+
+    <!-- Logo -->
+    <div class="logo"
+         ng-class="{ 'bg-dark': ['11','31'].indexOf(main.skin) >= 0,
+                     'bg-light': main.skin === '21',
+                     'bg-primary': ['12','22','32'].indexOf(main.skin) >= 0,
+                     'bg-success': ['13','23','33'].indexOf(main.skin) >= 0,
+                     'bg-info-alt': ['14','24','34'].indexOf(main.skin) >= 0,
+                     'bg-warning': ['15','25','35'].indexOf(main.skin) >= 0,
+                     'bg-danger': ['16','26','36'].indexOf(main.skin) >= 0,
+                    }">
+        <a href="#!/">
+            <span class="logo-icon glyphicon glyphicon-th-large"></span><span class="logo-text">{{main.brand}}</span>
+        </a>
+    </div>
+
+    <!-- needs to be put after logo to make it work -->
+    <div class="menu-button" toggle-off-canvas>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </div>
+
+    <div class="top-nav">
+        <ul class="nav-left list-unstyled">
+            <li>
+                <a href="#!/" data-toggle-nav-collapsed-min
+                             class="toggle-min"
+                             ><i class="fa fa-bars"></i></a>
+            </li>
+            <li class="dropdown hidden-xs" uib-dropdown is-open="status.isopenSettings">
+                <a href="javascript:;"  uib-dropdown-toggle ng-disabled="disabled"><i class="fa fa-cog"></i></a>
+                <div class="dropdown-menu with-arrow panel panel-default admin-options dropdown-menu-scaleIn" uib-dropdown-menu ui-not-close-on-click>
+                    <div class="panel-heading"><span data-translate="ADMIN_OPTIONS"></span></div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <p>Layouts Style</p>
+                            <label class="ui-radio"><input name="layout" type="radio" value="boxed" ng-model="main.layout"><span>Boxed</span></label>
+                            <label class="ui-radio"><input name="layout" type="radio" value="wide" ng-model="main.layout"><span>Wide</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <p>Additional</p>
+                            <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option1" ng-model="main.fixedHeader"><span>Fixed Top Header</span></label>
+                            <br>
+                            <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option1" ng-model="main.fixedSidebar"><span>Fixed Sidebar Menu</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <p>
+                                <span>Page Transition: </span> 
+                                <span class="space"></span>
+                                <select ng-model="main.pageTransition"
+                                        ng-options="ageTransitionOpt.name for ageTransitionOpt in pageTransitionOpts"></select>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="search-box visible-md visible-lg">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                    <input type="text" class="form-control" placeholder="{{ 'SEARCH' | translate }}">
+                </div>
+            </li>
+            <li class="dropdown" uib-dropdown is-open="status.isopenComment">
+                <a href="javascript:;" uib-dropdown-toggle ng-disabled="disabled">
+                    <i class="fa fa-comment-o"></i>
+                    <span class="badge badge-info">2</span>
+                </a>
+                <div class="dropdown-menu with-arrow panel panel-default dropdown-menu-scaleIn">
+                    <div class="panel-heading">
+                        You have 2 messages.
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="media-left media-icon">
+                                    <span class="btn-icon btn-icon-round btn-info"><i class="fa fa-comment-o"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">Jane sent you a message</span>
+                                    <span class="text-muted">3 hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="media-left media-icon">
+                                    <span class="btn-icon btn-icon-round btn-danger"><i class="fa fa-comment-o"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">Lynda sent you a mail</span>
+                                    <span class="text-muted">9 hours ago</span>
+                                </div>
+                            </a>
+                        </li>                       
+                    </ul>
+                    <div class="panel-footer">
+                        <a href="javascript:;">Show all messages.</a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown" uib-dropdown is-open="status.isopenEmail">
+                <a href="javascript:;" uib-dropdown-toggle ng-disabled="disabled">
+                    <i class="fa fa-envelope"></i>
+                    <span class="badge badge-danger">3</span>
+                </a>
+                <div class="dropdown-menu with-arrow panel panel-default dropdown-menu-scaleIn" uib-dropdown-menu>
+                    <div class="panel-heading">
+                        You have 3 mails.
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="media-left media-icon">
+                                    <span class="btn-icon btn-icon-round btn-warning"><i class="fa fa-envelope"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">Lisa sent you a mail</span>
+                                    <span class="text-muted block">2min ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="media-left media-icon">
+                                    <span class="btn-icon btn-icon-round btn-info"><i class="fa fa-envelope"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">Jane sent you a mail</span>
+                                    <span class="text-muted">3 hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="media-left media-icon">
+                                    <span class="btn-icon btn-icon-round btn-success"><i class="fa fa-envelope"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">Lynda sent you a mail</span>
+                                    <span class="text-muted">9 hours ago</span>
+                                </div>
+                            </a>
+                        </li>                       
+                    </ul>
+                    <div class="panel-footer">
+                        <a href="#!/mail/inbox">Show all mails.</a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown" uib-dropdown is-open="status.isopenBell">
+                <a href="javascript:;" uib-dropdown-toggle ng-disabled="disabled">
+                    <i class="fa fa-bell"></i>
+                    <span class="badge badge-info">3</span>
+                </a>
+                <div class="dropdown-menu with-arrow panel panel-default dropdown-menu-scaleIn" uib-dropdown-menu>
+                    <div class="panel-heading">
+                        You have 3 notifications.
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="media-left media-icon">
+                                    <span class="btn-icon btn-icon-round btn-success"><i class="fa fa-bell"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">New tasks needs to be done</span>
+                                    <span class="text-muted block">2min ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="media-left media-icon">
+                                    <span class="btn-icon btn-icon-round btn-info"><i class="fa fa-bell"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">Change your password</span>
+                                    <span class="text-muted">3 hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="media-left media-icon">
+                                    <span class="btn-icon btn-icon-round btn-danger"><i class="fa fa-bell"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">New feature added</span>
+                                    <span class="text-muted">9 hours ago</span>
+                                </div>
+                            </a>
+                        </li>                       
+                    </ul>
+                    <div class="panel-footer">
+                        <a href="#!/mail/inbox">Show all notifications.</a>
+                    </div>
+                </div>
+            </li>
+        </ul> 
+
+        <ul class="nav-right pull-right list-unstyled">
+            <li class="dropdown langs text-normal" uib-dropdown is-open="status.isopenLang" data-ng-controller="LangCtrl">
+                <a href="javascript:;" class="active-flag" uib-dropdown-toggle ng-disabled="disabled">
+                    <div class="flag {{ getFlag() }}"></div>
+                </a>
+                <ul class="dropdown-menu with-arrow list-langs pull-right dropdown-menu-scaleIn" role="menu" uib-dropdown-menu>
+                    <li data-ng-show="lang !== 'English' ">
+                        <a href="javascript:;" data-ng-click="setLang('English')"><div class="flag flags-american"></div> English</a></li>
+                    <li data-ng-show="lang !== 'Español' ">
+                        <a href="javascript:;" data-ng-click="setLang('Español')"><div class="flag flags-spain"></div> Español</a></li>
+                    <li data-ng-show="lang !== 'Portugal' ">
+                        <a href="javascript:;" data-ng-click="setLang('Portugal')"><div class="flag flags-portugal"></div> Portugal</a></li>
+                    <li data-ng-show="lang !== '中文' ">
+                        <a href="javascript:;" data-ng-click="setLang('中文')"><div class="flag flags-china"></div> 中文</a></li>
+                    <li data-ng-show="lang !== '日本語' ">
+                        <a href="javascript:;" data-ng-click="setLang('日本語')"><div class="flag flags-japan"></div> 日本語</a></li>
+                    <li data-ng-show="lang !== 'Русский язык' ">
+                        <a href="javascript:;" data-ng-click="setLang('Русский язык')"><div class="flag flags-russia"></div> Русский язык</a></li>
+                </ul>
+            </li> 
+            <li class="dropdown text-normal nav-profile" uib-dropdown is-open="status.isopenProfile">
+                <a href="javascript:;" uib-dropdown-toggle ng-disabled="disabled">
+                    <img src="assets/images/g1.jpg" alt="" class="img-circle img30_30">
+                    <span class="hidden-xs">
+                        <span data-translate="LISA"></span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu with-arrow pull-right dropdown-menu-scaleIn" uib-dropdown-menu>
+                    <li>
+                        <a href="#!/page/profile">
+                            <i class="fa fa-user"></i>
+                            <span data-translate="MY_PROFILE"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!/app/tasks">
+                            <i class="fa fa-tasks"></i>
+                            <span data-translate="MY_TASKS"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!/page/lock-screen">
+                            <i class="fa fa-lock"></i>
+                            <span data-translate="LOCK"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!/page/signin">
+                            <i class="fa fa-sign-out"></i>
+                            <span data-translate="LOG_OUT"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</header>
